@@ -47,7 +47,7 @@ public class ValidationItemControllerV2 {
 
     @PostMapping("/add")
     public String addItemV1(@ModelAttribute Item item, BindingResult bindingResult,
-                          RedirectAttributes redirectAttributes, Model model) {
+                            RedirectAttributes redirectAttributes, Model model) {
 
         // 검증 로직
         if (!StringUtils.hasText(item.getItemName())) {
@@ -57,7 +57,7 @@ public class ValidationItemControllerV2 {
             bindingResult.addError(new FieldError("item", "price", "가격은 1,000 ~ 1,000,000 까지 허용합니다."));
         }
         if (item.getQuantity() == null || item.getQuantity() >= 9999) {
-            bindingResult.addError(new FieldError("item", "quantity", "수량은 최대 9,999 까지 허용합니다."));
+            bindingResult.addError(new FieldError("item", "quantity", " 수량은 최대 9,999 까지 허용합니다."));
         }
 
         // 특정 필드가 아닌 복합 룰 검증
